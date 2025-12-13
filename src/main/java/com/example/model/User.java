@@ -24,10 +24,18 @@ public class User{
      @Column(nullable=false)
     private String password;
 
-     @Column(name="role",nullable=false)
+     @Column(nullable=false)
     private String role;
 
-     @Column(name="createdAt",unique=true,nullable=false)
+     @Column(updatable=false)
     private String createdAt ;
+    
+    @prePersist
+    protected void onCreate(){
+        this.createdAt=LocalDateTime.now();
+        if(this.role==null){
+            this.role="USER";
+        }
+    }
 
 }
