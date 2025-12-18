@@ -1,5 +1,6 @@
 package com.example.demp.entity;
 
+import jakarta.persistence.*;
 
 @Entity
 public class User{
@@ -22,6 +23,8 @@ public class User{
     private  LocalDateTime createdAt;
 
     @PrePersist
-    
+    public void createdAt(){
+        createdAt=LocalDateTime.now();
+    }
 
 }
