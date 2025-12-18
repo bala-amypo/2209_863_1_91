@@ -59,6 +59,19 @@ public class User{
     this.password=password;
     }
 
-    
+    public String getRole(){
+    return role;
+    }
+
+    public void setRole(String role){
+    this.role=role;
+    }
+
+    public LocalDateTime getCreatedAt(){
+    return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt){
+    this.creayedAt
 
 }
