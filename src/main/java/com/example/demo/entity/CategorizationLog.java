@@ -13,5 +13,17 @@ public class CategorizationLog{
 
     private Integet appliedRule;
 
+    private String matchedKeyword;
+
+    private String assignedCategory;
+
+    private String assignedUrgency;
+
+    private LocalDateTime loggedAt;
+
+    @PrePerist
+    public void prePersist(){
+        loggedAt=LocalDateTime.now();
+    }
     
 }
