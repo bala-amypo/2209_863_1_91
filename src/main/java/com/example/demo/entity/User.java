@@ -19,6 +19,9 @@ public class User{
 
     private String role="USER";
 
-    private 
+    private  LocalDateTime createdAt;
+
+    @PrePersist
+    
 
 }
