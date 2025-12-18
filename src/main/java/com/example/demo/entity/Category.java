@@ -13,6 +13,16 @@ public class Category{
     @Column(unique=true)
     private String categoryName;
 
+    private String description;
+
     @Column(nullable=false)
-    private String 
+    private String defaultUrgency;
+
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist(){
+        createdAt=LocalDateTime.now();
+    }
+    
 }
