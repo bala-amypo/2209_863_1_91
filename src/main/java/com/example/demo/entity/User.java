@@ -27,4 +27,18 @@ public class User{
         createdAt=LocalDateTime.now();
     }
 
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id){
+    this.id=id;
+    }
+
+    public String getfullName(){
+    return fullName;
+    }
+
+    public void setfullName()
+
 }
