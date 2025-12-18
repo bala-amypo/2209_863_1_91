@@ -16,5 +16,19 @@ public class Ticket{
     @Size(min=10)
     private String description;
 
-    
+    private String location;
+
+    private String createdBy;
+
+    private LocalDatTime createdAt;
+
+    @PrePersist
+    public void prePersist(){
+        createdAt=LocalDateTime.now();
+    }
+
+    private String assignedCategory;
+
+    private String urgencyLevel;
+
 }
