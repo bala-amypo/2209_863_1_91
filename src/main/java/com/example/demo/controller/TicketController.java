@@ -10,5 +10,10 @@ import java.util.*;
 public class TicketController{
 
     private final TicketService ticketServive;
-    
+    public TicketController(TicketService ticketService){
+    this.ticketService=ticketService;
+    }
+
+    @PostMapping("/createTicket")
+    public T
 }
