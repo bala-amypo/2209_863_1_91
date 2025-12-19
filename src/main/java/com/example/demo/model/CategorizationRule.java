@@ -31,10 +31,6 @@ public class CategorizationRule(){
         return id;
     }
 
-    public Long setId(Long id){
-        this.id=id;
-    }
-
     public Category getCategory(){
         return category;
     }

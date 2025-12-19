@@ -28,5 +28,11 @@ public class CategorizationLog{
     public void prePersist(){
         loggedAt=LocalDateTime.now();
     }
+
+    public Long getId(){
+        return id;
+    }
+
+    public 
     
 }

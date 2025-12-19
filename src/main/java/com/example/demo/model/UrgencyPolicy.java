@@ -29,10 +29,6 @@ public class UrgencyPolicy{
         return id;
     }
 
-    public void setId(Long id){
-        this.id=id;
-    }
-
     public String getPolicyName(){
         return policyName;
     }
