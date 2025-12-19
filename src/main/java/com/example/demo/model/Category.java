@@ -25,5 +25,19 @@ public class Category{
     public void prePersist(){
         createdAt=LocalDateTime.now();
     }
+
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id){
+        this.id=id;
+    }
+
+    public String categoryName(){
+        return categoryName;
+    }
+
+    p
     
 }
