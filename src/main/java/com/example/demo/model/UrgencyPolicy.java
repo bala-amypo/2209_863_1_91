@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import jakarta.persistece,*;
+import jakarta.persistece.*;
 
 @Entity
 public class UrgencyPolicy{

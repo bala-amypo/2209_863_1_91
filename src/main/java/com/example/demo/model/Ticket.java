@@ -1,7 +1,7 @@
-package com.example.demo.entity;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
-import java
+import java.time.LocalDateTime;
 
 @Entity
 public class Ticket{
