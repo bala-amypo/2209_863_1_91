@@ -56,6 +56,22 @@ public class Ticket{
     this.description=description;
     }
 
-    public 
+    public String getLocation(){
+    return location;
+    }
+
+    public void setLocation(String location){
+    this.location=location;
+    }
+
+    public String getCreatedBy(){
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy){
+        this.createdBy=createdBy;
+    }
+
+    
 
 }
