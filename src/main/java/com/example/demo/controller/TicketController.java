@@ -8,5 +8,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/tickets")
 public class TicketController{
+
+    private final TicketService ticketServive;
     
 }
