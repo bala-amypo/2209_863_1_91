@@ -14,10 +14,18 @@ public class CategorizationRuleController{
         this.categorizationRuleService=categorizationRuleService;
     }
 
-    @PostMapping("/{categoryId}")
+    @PostMapping
     public CategorizationRule createRule(@RequestBody CategorizationRule rule){
         return categorizationRuleService.createRule(rule);
     }
 
-    @GetMapping("/category/")
+    @GetMapping
+    public List<CategorizationRule>getAllRules(){
+        return categorizationRuleService.getAllRules();
+    }
+
+    @GetMapping("/{id}")
+    public CategorizationRule getRuleById(@PathVariable Long id){
+        return categorizationRuleService
+    }
 }
