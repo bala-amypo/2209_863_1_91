@@ -24,7 +24,7 @@ public class User{
 
     @PrePersist
     public void createdAt(){
-        createdAt=LocalDateTime.now();
+        this.createdAt=LocalDateTime.now();
     }
 
     public Long getId(){
