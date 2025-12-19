@@ -1,7 +1,7 @@
 package com.example.demo.servlet;
 
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.*;
 
 @WebServlet(urlPatterns="/health")
