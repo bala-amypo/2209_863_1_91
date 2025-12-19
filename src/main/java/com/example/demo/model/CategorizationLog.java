@@ -81,6 +81,12 @@ public class CategorizationLog{
 
     }
 
-    public CategrizationLog(Ticket ticket,CategorizationRule appliedRule,String matchedKeyword,)
+    public CategrizationLog(Ticket ticket,CategorizationRule appliedRule,String matchedKeyword,String assignedCategory,String assignedUrgency){
+       this.ticket=ticket;
+       this.appliedRule=appliedRule;
+       this.matchedKeyword=matchedKeyword;
+       this.assignedCategory=assignedCategory;
+       this.assignedUrgency=assignedUrgency;
+    }
     
 }
