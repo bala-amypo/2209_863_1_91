@@ -11,7 +11,7 @@ public class CategorizationLog{
 
     private Integer ticket;
 
-    private Integet appliedRule;
+    private Integer appliedRule;
 
     private String matchedKeyword;
 
