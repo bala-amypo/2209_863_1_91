@@ -72,6 +72,22 @@ public class Ticket{
         this.createdBy=createdBy;
     }
 
-    
+    public Category getAssignedCategory(){
+        return assignedCategory;
+    }
+
+    public void setAssignedCategory(Category assignedCategory){
+        this.assignedCategory=assignedCategory;
+    }
+
+    public String getUrgecyLevel(){
+        return urgencyLevel;
+    }
+
+    public void setUrgencyLevel(String urgencyLevel){
+        this.urgencyLevel=urgencyLevel;
+    }
+
+    publiu
 
 }
