@@ -15,5 +15,12 @@ public class CategoryController{
     }
 
     @PostMapping
-    public Category createTicket
+    public Category createCategory(@RequestBody Category category){
+        return categoryService.createCategory(category);
+    }
+
+    @GetMapping
+    public List<Category> getAllCategories(){
+        return categoryService.
+    }
 }
