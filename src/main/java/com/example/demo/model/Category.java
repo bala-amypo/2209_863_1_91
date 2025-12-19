@@ -50,6 +50,21 @@ public class Category{
         this.description=description;
     }
 
-    public String getDefaultU
+    public String getDefaultUrgency(){
+        return defaultUrgency;
+    }
+
+    public void setDefaultUrgency(String defaultUrgency){
+        this.defaultUrgency=defaultUrgency;
+    }
+
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
     
+    public Category(){
+
+    }
+
+    public Category(Long id,)
 }
