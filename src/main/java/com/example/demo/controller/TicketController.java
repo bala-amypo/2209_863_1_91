@@ -14,17 +14,17 @@ public class TicketController{
     this.ticketService=ticketService;
     }
 
-    @PostMapping("/createTicket")
+    @PostMapping
     public Ticket createTicket(@RequestBody Ticket ticket){
         return ticketService.createTicket(ticket);
     }
 
-    @GetMapping("/getAllTickets")
+    @GetMapping
     public List<Ticket>getAllTickets(){
         return ticketService.getAllTickets();
     }
 
-    @GetMapping("/getTicket/{id}")
+    @GetMapping("/{id}")
     public Ticket getTicketById(@PathVariable Long id){
         return ticketService.getTicketById(id);
     }
