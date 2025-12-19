@@ -1,6 +1,8 @@
 package com.example.demo.servlet;
 
-import jakarta.persistence.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+import java.io.*;
 
 @WebServlet(urlPatterns="/health")
 public class HealthServlet extends HttpServlet{
