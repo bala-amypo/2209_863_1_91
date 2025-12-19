@@ -15,5 +15,15 @@ public class TicketController{
     }
 
     @PostMapping("/createTicket")
-    public T
+    public Ticket createTicket(@RequestBody Ticket ticket){
+        return ticketService.createTicket(ticket);
+    }
+
+    @GetMapping("/getAllTickets")
+    public List<Ticket>getAllTickets(){
+        return ticketService.getAllTickets();
+    }
+
+    @GetMapping("/get/{id}")
+    public Ticket getById()
 }
