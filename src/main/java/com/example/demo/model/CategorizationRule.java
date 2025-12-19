@@ -50,5 +50,29 @@ public class CategorizationRule(){
         this.keyword=keyword;
     }
 
+    public String getMatchType(){
+        return matchType;
+    }
+
+    public void setMatchType(String matchType){
+        this.matchType=matchType;
+    }
+
+    public Integer getPriority(){
+        return priority;
+    }
+
+    public void setPriority(Integer priority){
+        this.priority=priority;
+    }
+
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+
+    public CategorizationRule(){
+        
+    }
+
     
 }
