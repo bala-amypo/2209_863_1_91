@@ -33,6 +33,22 @@ public class CategorizationLog{
         return id;
     }
 
-    public 
+    public CategorizationRule getAppliedRule(){
+        return appliedRule;
+    }
+
+    public void setAppliedRule(CategorizationRule appliedRule){
+        this.appliedRule=appliedRule;
+    }
+
+    public Ticket getTicket(){
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket){
+        this.ticket=ticket;
+    }
+
+    
     
 }
