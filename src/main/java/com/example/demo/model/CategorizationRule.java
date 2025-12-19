@@ -9,7 +9,8 @@ public class CategorizationRule(){
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    private String category;
+    @ManyToOne
+    private  Category category;
 
     @NotBlank
     private String keyword;
@@ -24,5 +25,10 @@ public class CategorizationRule(){
     public void prePersist(){
         createdAt=LocalDateTime.now();
     }
+
+    public Long getId(){
+        
+    }
+
     
 }
