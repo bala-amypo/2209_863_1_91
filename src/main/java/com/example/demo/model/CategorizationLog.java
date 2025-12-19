@@ -10,9 +10,11 @@ public class CategorizationLog{
     @GenratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    private Integer ticket;
+    @ManyToOne
+    private  Ticket ticket;
 
-    private Integer appliedRule;
+    @ManyToOne
+    private  CategorizationRule appliedRule;
 
     private String matchedKeyword;
 

@@ -33,6 +33,42 @@ public class UrgencyPolicy{
         this.id=id;
     }
 
-    public String PolicyName
+    public String getPolicyName(){
+        return policyName;
+    }
+
+    public void setPolicyName(String policyName){
+        this.policyName=policyName;
+    }
+
+    public String getKeyword(){
+        return keyword;
+    }
+
+    public void setKeyword(Sting keyword){
+        this.keyword=keyword;
+    }
+
+    public String getUrgencyOverride(){
+        return urgencyOverride;
+    }
+
+    public void setUrgencyOverride(String urgencyOverride){
+        this.urgencyOverride=urgencyOverride;
+    }
+
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+
+    public UrgencyPolicy(){
+
+    }
+
+    public UrgencyPolicy(String policyName,String keyword,String urgencyOverride){
+        this.policyName=policyName;
+        this.keyword=keyword;
+        this.urgencyOverride=urgencyOverride;
+    }
     
 }
