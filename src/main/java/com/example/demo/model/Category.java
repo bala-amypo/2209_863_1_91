@@ -34,10 +34,22 @@ public class Category{
         this.id=id;
     }
 
-    public String categoryName(){
+    public String getCategoryName(){
         return categoryName;
     }
 
-    p
+    public void setCategoryName(String categoryName){
+        this.categoryName=categoryName;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description=description;
+    }
+
+    public String getDefaultU
     
 }
