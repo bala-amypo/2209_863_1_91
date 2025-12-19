@@ -1,4 +1,4 @@
-package com.example.demp.entity;
+package com.example.demp.model;
 
 import jakarta.persistence.*;
 
@@ -24,7 +24,7 @@ public class User{
 
     @PrePersist
     public void createdAt(){
-        this.createdAt=LocalDateTime.now();
+        createdAt=LocalDateTime.now();
     }
 
     public Long getId(){
