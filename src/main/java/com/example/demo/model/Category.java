@@ -66,8 +66,9 @@ public class Category{
 
     }
 
-    public Category(Long id,String categoryName,String description,String defaultUrgency){
-        this.id=id;
-        
+    public Category(String categoryName,String description,String defaultUrgency){
+        this.categoryName=categoryName;
+        this.description=description;
+        this.defaultUrgency=defaultUrgency;
     }
 }

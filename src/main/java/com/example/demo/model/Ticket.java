@@ -27,7 +27,8 @@ public class Ticket{
         createdAt=LocalDateTime.now();
     }
 
-    private String assignedCategory;
+    @ManyToOne
+    private Category assignedCategory;
 
     private String urgencyLevel;
 
