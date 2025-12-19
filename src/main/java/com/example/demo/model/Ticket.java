@@ -88,6 +88,21 @@ public class Ticket{
         this.urgencyLevel=urgencyLevel;
     }
 
-    publiu
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+
+    public Ticket(){
+
+    }
+
+    public Ticket(String title,String description,String location,String createdBy,Category assignedCategory,String urgencyLevel){
+        this.title=title;
+        thhis.description=description;
+        this.location=location;
+        this.createdBy=createdBy;
+        this.assignedCategory=assignedCategory;
+        this.
+    }
 
 }
