@@ -79,6 +79,12 @@ public class User{
 
     }
 
-    public User(Long id,String fullName,String email,String password,String r
-
+    public User(Long id,String fullName,String email,String password,String role,LocalDateTime createdAt){
+    this.id=id;
+    this.fullName=fullName;
+    this.email=email;
+    this.password=password;
+    this.role=role;
+    this.createdAt=createdAt;
+    }
 }
