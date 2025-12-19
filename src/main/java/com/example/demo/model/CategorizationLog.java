@@ -49,6 +49,38 @@ public class CategorizationLog{
         this.ticket=ticket;
     }
 
-    
+    public String getMatchedKeyword(){
+        return matchedKeyword;
+    }
+
+    public void setMatchedKeyword(String matchedKeyword){
+        this.matchedKeyword=matchedKeyword;
+    }
+
+    public String getAssignedCategory(){
+        return assignedCategory;
+    }
+
+    public void setAssignedCategory(String assignedCategory){
+        this.assignedCategory=assignedCategory;
+    }
+
+    public String getAssignedUrgency(){
+        return assignedUrgency;
+    }
+
+    public void setAssignedUrgency(String assignedUrgency){
+        this.assignedUrgency=assignedUrgency;
+    }
+
+    public LocalDateTime getLoggedAt(){
+        return loggedAt;
+    }
+
+    public CategorizationLog(){
+
+    }
+
+    public CategrizationLog(Ticket ticket,CategorizationRule appliedRule,String matchedKeyword,)
     
 }
