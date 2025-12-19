@@ -14,5 +14,6 @@ public class CategoryController{
         this.categoryService=categoryService;
     }
 
-    @PostMapping()
+    @PostMapping
+    public Category createTicket
 }
