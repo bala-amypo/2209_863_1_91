@@ -26,6 +26,6 @@ public class CategorizationRuleController{
 
     @GetMapping("/{id}")
     public CategorizationRule getRuleById(@PathVariable Long id){
-        return categorizationRuleService
+        return categorizationRuleService.getRuleById(id);
     }
 }
