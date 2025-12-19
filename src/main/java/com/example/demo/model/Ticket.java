@@ -48,6 +48,14 @@ public class Ticket{
     this.title=title;
     }
 
+    public String getDescription(){
+    return description;
+    }
+
+    public void setDecription(String description){
+    this.description=description;
+    }
+
     public 
 
 }
