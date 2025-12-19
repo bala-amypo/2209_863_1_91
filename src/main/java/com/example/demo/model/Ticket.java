@@ -102,7 +102,7 @@ public class Ticket{
         this.location=location;
         this.createdBy=createdBy;
         this.assignedCategory=assignedCategory;
-        this.
+        this.urgencyLebel=urgencyLevel;
     }
 
 }
