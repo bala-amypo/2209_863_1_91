@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CategorizationLog;
-import com.example.demo.service.CategorizationLogService;
-import org.springframework.we.bind.annotation.*;
+import com.example.demo.service.CategorizationEngineService;
+import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
