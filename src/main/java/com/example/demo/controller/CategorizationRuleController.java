@@ -19,9 +19,9 @@ public class CategorizationRuleController{
         return categorizationRuleService.createRule(categoryId,rule);
     }
 
-    @GetMapping("/category/"categoryId}")
-    public List<CategorizationRule>getAllRules(@PathVariable ){
-        return categorizationRuleService.getAllRules();
+    @GetMapping("/category/{categoryId}")
+    public List<CategorizationRule>getAllRulesForCategory(@PathVariable Long categoryId){
+        return categorizationRuleService.getAllRulesForCategory(categoryId);
     }
 
     @GetMapping("/{id}")
