@@ -29,8 +29,12 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
 
     @Override
     public List<CategorizationLog>getLogsForTicket(Long ticketId){
-        return logRepository.findByTicketId(Long ticketId)
+        return logRepository.findByTicket_id(Long ticketId);
     }
 
-    
+    @Override
+    public CategorizationLog getLog(Long id){
+        return logRepository.findById(id).orElseThrow(()->new RuntimeException("Log not found"));
+    }
+
 }
