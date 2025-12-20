@@ -4,5 +4,6 @@ import com.example.demo.model.UrgencyPolicy;
 import java.util.*;
 
 public interface UrgencyPolicyService{
+
     
 }
