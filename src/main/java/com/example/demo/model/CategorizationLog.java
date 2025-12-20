@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class CategorizationLog{
 
     @Id
-    @GenratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -24,7 +24,7 @@ public class CategorizationLog{
 
     private LocalDateTime loggedAt;
 
-    @PrePerist
+    @PrePersist
     public void prePersist(){
         loggedAt=LocalDateTime.now();
     }

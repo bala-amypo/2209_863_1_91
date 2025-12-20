@@ -13,7 +13,7 @@ public class CategorizationRule{
     @ManyToOne
     private  Category category;
 
-    @NotBlank
+    @Column(nullable=false)
     private String keyword;
 
     private String matchType;

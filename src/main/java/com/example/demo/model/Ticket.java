@@ -13,8 +13,7 @@ public class Ticket{
     @Column(nullable=false)
     private String title;
 
-    @Column
-    @Size(min=10)
+    @Column()
     private String description;
 
     private String location;
