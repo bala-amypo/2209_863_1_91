@@ -14,8 +14,8 @@ public class CategorizationRuleController{
         this.categorizationRuleService=categorizationRuleService;
     }
 
-    @PostMapping
-    public CategorizationRule createRule(@RequestBody CategorizationRule rule){
+    @PostMapping("/{categoryId})
+    public CategorizationRule createRule(@PathVariable Long categoryId ,@RequestBody CategorizationRule rule){
         return categorizationRuleService.createRule(rule);
     }
 
