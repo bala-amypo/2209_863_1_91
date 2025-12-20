@@ -16,6 +16,16 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public Category createCategory(Category category){
-        return 
+        return categoryRepository.save(category);
+    }
+
+    @Override
+    public List<Category> getAllCategories(){
+        return categoryRepository.findAll();
+    }
+
+    @Override
+    public Category getCategory(Long id){
+        return categoryRepository.findById(id).orElseThrow(()->new RuntimeException("Category not found"));
     }
 }
