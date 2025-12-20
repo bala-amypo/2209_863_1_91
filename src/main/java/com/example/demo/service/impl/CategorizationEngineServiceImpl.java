@@ -12,5 +12,12 @@ import java.util.*;
 public class CategorizationEngineServiceImpl implements CategorizationEngineService{
 
     private final TicketRepository ticketRepository;
-    private final CategorizationLogRepository logRepository
+    private final CategorizationLogRepository logRepository;
+    public CategorizationEngineServiceImpl(TicketRepository ticketRepository,CategorizationLogRepository logRepository){
+        this.ticketRepository=ticketRepository;
+        this.logRepository=logRepository;
+    }
+
+    @Override
+    public Ticket categorizeTicket
 }
