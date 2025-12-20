@@ -6,34 +6,43 @@ import com.example.demo.repository.TicketRepository;
 import com.example.demo.repository.CategorizationLogRepository;
 import com.example.demo.service.CategorizationEngineService;
 import org.springframework.stereotype.Service;
-import java.util.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
-public class CategorizationEngineServiceImpl implements CategorizationEngineService{
+public class CategorizationEngineServiceImpl implements CategorizationEngineService {
 
     private final TicketRepository ticketRepository;
     private final CategorizationLogRepository logRepository;
-    public CategorizationEngineServiceImpl(TicketRepository ticketRepository,CategorizationLogRepository logRepository){
-        this.ticketRepository=ticketRepository;
-        this.logRepository=logRepository;
+
+    public CategorizationEngineServiceImpl(
+            TicketRepository ticketRepository,
+            CategorizationLogRepository logRepository) {
+        this.ticketRepository = ticketRepository;
+        this.logRepository = logRepository;
     }
 
     @Override
-    public Ticket categorizeTicket(Long ticketId){
-        Ticket ticket=ticketRepository.findById(ticketId).orElseThrow(()->new RuntimeException("Ticket not found"));
-        CategorizationLog log=new CategorizationLog();
-        log.setTicketId(ticketId);
-        return logRepository.save(log);
+    public Ticket categorizeTicket(Long ticketId) {
+        Ticket ticket = ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new RuntimeException("Ticket not found"));
+        ticketRepository.save(ticket);
+        CategorizationLog log = new CategorizationLog();
+        log.setTicket(ticket);                 
+        log.setCreatedAt(LocalDateTime.now());
+        logRepository.save(log);             
+        return ticket;
     }
 
     @Override
-    public List<CategorizationLog>getLogsForTicket(Long ticketId){
+    public List<CategorizationLog> getLogsForTicket(Long ticketId) {
         return logRepository.findByTicketId(ticketId);
     }
 
     @Override
-    public CategorizationLog getLog(Long id){
-        return logRepository.findById(id).orElseThrow(()->new RuntimeException("Log not found"));
+    public CategorizationLog getLog(Long id) {
+        return logRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Log not found"));
     }
-
 }
