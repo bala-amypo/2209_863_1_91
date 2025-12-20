@@ -59,9 +59,8 @@
 		    <version>7.8.0</version>
 		    <scope>test</scope>
         </dependency>
-	 </dependencies>					
-																																																										<build>
-																																																																																																																								<plugins>
+	 </dependencies>																																		
+	 <bui																																	<plugins>
 																																																																																																																											<plugin>
 																																																																																																																															<groupId>org.springframework.boot</groupId>
 																																																																																																																																			<artifactId>spring-boot-maven-plugin</artifactId>
