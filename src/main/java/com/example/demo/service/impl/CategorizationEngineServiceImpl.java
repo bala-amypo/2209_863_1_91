@@ -29,8 +29,7 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
                 .orElseThrow(() -> new RuntimeException("Ticket not found"));
         ticketRepository.save(ticket);
         CategorizationLog log = new CategorizationLog();
-        log.setTicket(ticket);                 
-        log.setCreatedAt(LocalDateTime.now());
+        log.setTicket(ticket);     
         logRepository.save(log);             
         return ticket;
     }
