@@ -25,7 +25,7 @@ public class CategorizationEngineController{
     }
 
     @GetMapping("/log/{id}")
-    public CategorizationLog getLog(@PathVariable Long ticketId){
-        return categorizationLogService.getLog(ticketId);
+    public CategorizationLog getLog(@PathVariable Long id){
+        return categorizationLogService.getLog(id);
     }
 }
