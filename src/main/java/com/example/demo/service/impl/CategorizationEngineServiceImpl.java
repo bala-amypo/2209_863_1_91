@@ -20,6 +20,15 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
 
     @Override
     public Ticket categorizeTicket(Long ticketId){
-        Ticket ticket=ticketRepository.findById(ticketId).orElseThrow(()->new RuntimeException)
+        Ticket ticket=ticketRepository.findById(ticketId).orElseThrow(()->new RuntimeException("Ticket not found"));
+        CategorizationLog log=new CategorizationLog();
+        log.setTicket(ticket);
+        log.setResult("Ticket categorized successfully");
+        logRepository.save(log);
+    }
+
+    @Override
+    public List<CategorizationLog>getLogsForTicket(Long ticketId){
+        return logRepository.fi
     }
 }
