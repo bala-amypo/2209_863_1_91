@@ -1,7 +1,7 @@
 package com.example.demo.servlet;
 
 import jakarta.servlet.http.*;
-import jakarta.servlet.*;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.*;
 
