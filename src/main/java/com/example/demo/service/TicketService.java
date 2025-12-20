@@ -5,5 +5,9 @@ import java.util.*;
 
 public interface TicketService{
 
-    
+    Ticket createTicket(Ticket ticket);
+
+    List<Ticket> getAllTickets();
+
+    Ticket 
 }
