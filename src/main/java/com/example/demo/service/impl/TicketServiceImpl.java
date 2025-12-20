@@ -25,5 +25,6 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     public Ticket getTicket(Long id){
-        return ticketRepository.findById(id).orElseThrow(()->new RuntimeException(""))
+        return ticketRepository.findById(id).orElseThrow(()->new RuntimeException("Ticket not found"));
     }
+}
