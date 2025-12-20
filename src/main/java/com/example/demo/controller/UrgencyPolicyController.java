@@ -2,7 +2,7 @@ package dom.example.demo.controller;
 
 import dom.example.demo.model.UrgencyPolicy;
 import dom.example.demo.service.UrgencyPolicyService;
-import org.springframework.web.bind.annotation.;
+import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
