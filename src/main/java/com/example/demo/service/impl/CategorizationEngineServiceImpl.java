@@ -22,13 +22,13 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
     public Ticket categorizeTicket(Long ticketId){
         Ticket ticket=ticketRepository.findById(ticketId).orElseThrow(()->new RuntimeException("Ticket not found"));
         CategorizationLog log=new CategorizationLog();
-        log.setTicket(ticket);
+        log.setTicketId(ticket);
         return logRepository.save(log);
     }
 
     @Override
     public List<CategorizationLog>getLogsForTicket(Long ticketId){
-        return logRepository.findById(ticketId);
+        return logRepository.findByTicketId(ticketId);
     }
 
     @Override
