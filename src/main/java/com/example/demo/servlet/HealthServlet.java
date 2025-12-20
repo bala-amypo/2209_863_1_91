@@ -8,7 +8,6 @@ import java.io.*;
 @WebServlet(urlPatterns="/health")
 public class HealthServlet extends HttpServlet{
 
-    @Override
     protected void deoGet(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException  {
         resp.getWriter().write("OK");
     }
