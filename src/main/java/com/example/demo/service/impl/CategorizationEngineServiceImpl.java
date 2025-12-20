@@ -4,7 +4,7 @@ import com.example.demo.model.Ticket;
 import com.example.demo.model.CategorizationLog;
 import com.example.demo.repository.TicketRepository;
 import com.example.demo.repository.CategorizationLogRepository;
-import com.examle.dem0.service.CategorizationEngineService;
+import com.example.demo.service.CategorizationEngineService;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
@@ -24,7 +24,7 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
         CategorizationLog log=new CategorizationLog();
         log.setTicket(ticket);
         log.setResult("Ticket categorized successfully");
-        logRepository.save(log);
+        return logRepository.save(log);
     }
 
     @Override
