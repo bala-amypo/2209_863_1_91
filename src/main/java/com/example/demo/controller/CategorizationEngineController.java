@@ -15,17 +15,17 @@ public class CategorizationEngineController{
     }
 
     @PostMapping("/run/{ticketId}")
-    public CategorizationLog categorizeTicket(@PathVariable Long ticketId,@RequestBody CategorizationLog categorizationLog){
-        return categorizationLogService.categorizeTicket(ticketId,categorizationLog);
+    public Ticket categorizeTicket(@PathVariable Long ticketId){
+        return categorizationLogService.categorizeTicket(ticketId);
     }
 
     @GetMapping("/logs/{ticketId}")
-    public List<CategorizationLog> getAllLogs(@PathVariable Long ticketId){
-        return categorizationLogService.getAllLogs(ticketId);
+    public List<CategorizationLog> getLogsForTicket(@PathVariable Long ticketId){
+        return categorizationLogService.getLogsForTicket(ticketId);
     }
 
     @GetMapping("/log/{id}")
     public CategorizationLog getLog(@PathVariable Long ticketId){
-        return categorizationLogService.getLogById(ticketId);
+        return categorizationLogService.getLog(ticketId);
     }
 }
