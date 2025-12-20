@@ -22,7 +22,7 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
     public Ticket categorizeTicket(Long ticketId){
         Ticket ticket=ticketRepository.findById(ticketId).orElseThrow(()->new RuntimeException("Ticket not found"));
         CategorizationLog log=new CategorizationLog();
-        log.setTicketId(ticket);
+        log.setTicketId(ticketId);
         return logRepository.save(log);
     }
 
