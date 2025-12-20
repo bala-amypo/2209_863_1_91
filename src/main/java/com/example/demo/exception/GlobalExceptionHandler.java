@@ -9,9 +9,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler{
 
     @ExceptionHandler(ResourceNotFoundException.class)
-        public ResponseEntity<String>handleResourceNotFound(ResourceNotFoundException ex){
-            return new ResponseEntity<?>(ex.getMesage(),HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<String>handleResourceNotFound(ResourceNotFoundException ex){
+        return new ResponseEntity<>(ex.getMesage(),HttpStatus.NOT_FOUND);
+    }
     
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String>handleIllegalArgument(IllegalArgumentException ex){
+        return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
 
 }
