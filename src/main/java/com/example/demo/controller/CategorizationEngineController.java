@@ -10,5 +10,14 @@ import java.util.*;
 public class CategorizationEngineController{
 
     private final CategorizationLogService CategorizationLogService;
-    public 
+    public CategorizationEngineController(CategorizationLogService categorizationLogService){
+        this.categorizationLogService=categorizationLogService;
+    }
+
+    @PostMapping("/run/{ticketId}")
+    public CategorizationLog categorizeTicket(@PathVariable Long ticketId,@RequestBody CategorizationLog categorizationLog){
+        return categorizationLogService.categorizeTicket(ticketId,categorizationLog);
+    }
+
+    @GetMapping("/logs/{})
 }
