@@ -5,125 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.0:run (default-cli) on project demo: Process terminated with exit code: 1 -> [Help 1]
-org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.0:run (default-cli) on project demo: Process terminated with exit code: 1
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:375)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
-    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:569)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
-Caused by: org.apache.maven.plugin.MojoExecutionException: Process terminated with exit code: 1
-    at org.springframework.boot.maven.JavaProcessExecutor.run (JavaProcessExecutor.java:75)
-    at org.springframework.boot.maven.RunMojo.run (RunMojo.java:84)
-    at org.springframework.boot.maven.AbstractRunMojo.run (AbstractRunMojo.java:263)
-    at org.springframework.boot.maven.AbstractRunMojo.execute (AbstractRunMojo.java:226)
-    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:370)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
-    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:569)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
-[ERROR] 
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-coder@80380414a95e:~/Workspace/demo$ [ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.0:run (default-cli) on project demo: Process terminated with exit code: 1 -> [Help 1]
-org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.0:run (default-cli) on project demo: Process terminated with exit code: 1
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:375)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
-    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:569)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
-Caused by: org.apache.maven.plugin.MojoExecutionException: Process terminated with exit code: 1
-    at org.springframework.boot.maven.JavaProcessExecutor.run (JavaProcessExecutor.java:75)
-    at org.springframework.boot.maven.RunMojo.run (RunMojo.java:84)
-    at org.springframework.boot.maven.AbstractRunMojo.run (AbstractRunMojo.java:263)
-    at org.springframework.boot.maven.AbstractRunMojo.execute (AbstractRunMojo.java:226)
-    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:370)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
-    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:569)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
-[ERROR] 
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-coder@80380414a95e:~/Workspace/demo$ 
+		<version>3.3.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -148,36 +30,42 @@ coder@80380414a95e:~/Workspace/demo$
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>8.0.33</version>
+</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.8.13</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.8.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -185,7 +73,20 @@ coder@80380414a95e:~/Workspace/demo$
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.5</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-testng</artifactId>
+						<version>3.2.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
