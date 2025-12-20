@@ -4,6 +4,6 @@ import com.example.demo.model.UrgencyPolicy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 
-public interface UrgencyPolicyRepository extends JpaRepository<UrgencyPolicy,Lomg>{
+public interface UrgencyPolicyRepository extends JpaRepository<UrgencyPolicy,Long>{
     List<UrgencyPolicy>findByKeywordContainingIgnoreCase(String keyword);
 }

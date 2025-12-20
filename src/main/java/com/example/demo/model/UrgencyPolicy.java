@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistece.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -41,7 +41,7 @@ public class UrgencyPolicy{
         return keyword;
     }
 
-    public void setKeyword(Sting keyword){
+    public void setKeyword(String keyword){
         this.keyword=keyword;
     }
 
