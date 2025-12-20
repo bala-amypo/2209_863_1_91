@@ -9,7 +9,7 @@ import java.util.*;
 @RequestMapping("/api/tickets")
 public class TicketController{
 
-    private final TicketService ticketServive;
+    private final TicketService ticketService;
     public TicketController(TicketService ticketService){
     this.ticketService=ticketService;
     }

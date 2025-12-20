@@ -13,7 +13,7 @@ public class Ticket{
     @Column(nullable=false)
     private String title;
 
-    @Column()
+    @Column
     private String description;
 
     private String location;
@@ -94,11 +94,11 @@ public class Ticket{
 
     public Ticket(String title,String description,String location,String createdBy,Category assignedCategory,String urgencyLevel){
         this.title=title;
-        thhis.description=description;
+        this.description=description;
         this.location=location;
         this.createdBy=createdBy;
         this.assignedCategory=assignedCategory;
-        this.urgencyLebel=urgencyLevel;
+        this.urgencyLevel=urgencyLevel;
     }
 
 }

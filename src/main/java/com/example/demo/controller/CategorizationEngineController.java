@@ -10,7 +10,7 @@ import java.util.*;
 @RequestMapping("/api/categorize")
 public class CategorizationEngineController{
 
-    private final CategorizationEngineService CategorizationEngineService;
+    private final CategorizationEngineService categorizationEngineService;
     public CategorizationEngineController(CategorizationEngineService categorizationEngineService){
         this.categorizationEngineService=categorizationEngineService;
     }
