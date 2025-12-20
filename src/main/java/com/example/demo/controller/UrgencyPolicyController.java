@@ -13,4 +13,17 @@ public class UrgencyPolicyController{
     public UrgencyPolicyController(UrgencyPolicyService urgencyPolicyService){
         this.urgencyPolicyService=urgencyPolicyService;
     }
+
+    @PostMapping
+    public UrgencyPolicy createPolicy(@RequestBody UrgencyPolicy policy){
+        return urgencyPolicyService.createPolicy(policy);
+    }
+
+    @GetMapping
+    public List<UrgencyPolicy> getAllPolicies(){
+        return urgencyPolicyService.listAllPolicies();
+    }
+
+    @GetMapping("/{id}")
+    public UrgencyPolicy 
 }
