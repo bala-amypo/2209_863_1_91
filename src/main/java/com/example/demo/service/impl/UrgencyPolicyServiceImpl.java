@@ -13,4 +13,19 @@ public class UrgencyPolicyServiceImpl implements UrgencyPolicyService{
     public UrgencyPolicyServiceImpl(UrgencyPolicyRepository policyRepository){
         this.policyRepository=policyRepository;
     }
+
+    @Override
+    public UrgencyPolicy createPolicy(UrgencyPolicy policy){
+        return policyRepository.save(policy);
+    }
+
+    @Override
+    public List<UrgencyPolicy> getAllPolicies(){
+        return policyRepository.findAll();
+    }
+
+    @Override
+    public UrgencyPolicy getPolicy(Long id){
+        return policyRepository.findById(id).orElseThrow(()->new RuntimeException("Policy not found"));
+    }
 }
