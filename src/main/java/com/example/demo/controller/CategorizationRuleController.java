@@ -20,12 +20,12 @@ public class CategorizationRuleController{
     }
 
     @GetMapping("/category/{categoryId}")
-    public List<CategorizationRule>getAllRulesForCategory(@PathVariable Long categoryId){
-        return categorizationRuleService.getAllRulesForCategory(categoryId);
+    public List<CategorizationRule>getRulesByCategory(@PathVariable Long categoryId){
+        return categorizationRuleService.getRulesByCategory(categoryId);
     }
 
     @GetMapping("/{id}")
-    public CategorizationRule getRuleById(@PathVariable Long id){
-        return categorizationRuleService.getRuleById(id);
+    public CategorizationRule getRule(@PathVariable Long id){
+        return categorizationRuleService.getRule(id);
     }
 }
