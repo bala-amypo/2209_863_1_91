@@ -1,7 +1,7 @@
-package dom.example.demo.controller;
+package com.example.demo.controller;
 
-import dom.example.demo.model.UrgencyPolicy;
-import dom.example.demo.service.UrgencyPolicyService;
+import com.example.demo.model.UrgencyPolicy;
+import com.example.demo.service.UrgencyPolicyService;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 

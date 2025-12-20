@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CategorizationLog;
+import com.example.demo.model.Ticket;
 import com.example.demo.service.CategorizationEngineService;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;

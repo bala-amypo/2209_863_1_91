@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.CategorizationLog;
+import com.demo.model
 import java.util.*;
 
 public interface CategorizationEngineService{

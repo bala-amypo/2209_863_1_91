@@ -21,7 +21,7 @@ public class Ticket{
 
     private String createdBy;
 
-    private LocalDatTime createdAt;
+    private LocalDateTime createdAt;
 
     @PrePersist
     public void prePersist(){
