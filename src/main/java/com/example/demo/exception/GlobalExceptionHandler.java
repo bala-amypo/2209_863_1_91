@@ -19,5 +19,8 @@ public class GlobalExceptionHandler{
     }
 
     @ExceptionHandler(Exception.class)
+    public ResponseEntity<String>handleGenericException(Exception ex){
+        return new ResponseEntity<>("Internal Server Error",HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
 }
