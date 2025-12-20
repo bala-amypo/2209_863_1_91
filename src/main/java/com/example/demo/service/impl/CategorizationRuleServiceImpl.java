@@ -12,9 +12,15 @@ import java.util.*;
 public class CategorizationRuleServiceImpl implements CategorizationRuleService{
 
     private final CategorizationRuleRepository categorizationRuleRepository;
-    private 
-    public CategorizationRuleServiceImpl(CategorizationRuleRepository categorizationRuleRepository){
+    private final CategoryRepository categoryRepository;
+    public CategorizationRuleServiceImpl(CategorizationRuleRepository categorizationRuleRepository,CategoryRepository categoryRepository){
         this.categorizationRuleRepository=categorizationRuleRepository;
+        this.categoryRepository=categoryRepository;
+    }
+
+    @Override
+    public CategorizationRule createRule(Long categoryId,CategorizationRule rule){
+        Category category=categoryRepository.
     }
     
 }
