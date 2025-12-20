@@ -10,5 +10,20 @@ import java.util.*;
 public class TicketServiceImpl implements TicketService{
     private final TicketRepository ticketRepository;
     public TicketServiceImpl(TicketRepository ticketRepository){
-        this.ticketRepository
+        this.ticketRepository=ticketRepository;
+    }
+
+    @Override
+    public Ticket createTicket(Ticket ticket){
+        return ticketRepository.save(ticket);
+    }
+
+    @Override
+    public List<Ticket> getAllTickets(){
+        return ticketRepository.findAll();
+    }
+
+    @Override
+    public Ticket getTicket(Long id){
+        return ticketRepository.findById(id).orElseThrow(()->new RuntimeException(""))
     }
