@@ -19,5 +19,7 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
     }
 
     @Override
-    public Ticket categorizeTicket
+    public Ticket categorizeTicket(Long ticketId){
+        Ticket ticket=ticketRepository.findById(ticketId).orElseThrow(()->new RuntimeException)
+    }
 }
