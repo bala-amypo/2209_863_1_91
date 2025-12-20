@@ -9,5 +9,5 @@ public interface TicketService{
 
     List<Ticket> getAllTickets();
 
-    Ticket getTicketById(Long id);
+    Ticket getTicket(Long id);
 }
