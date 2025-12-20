@@ -81,7 +81,7 @@ public class CategorizationLog{
 
     }
 
-    public CategrizationLog(Ticket ticket,CategorizationRule appliedRule,String matchedKeyword,String assignedCategory,String assignedUrgency){
+    public void CategrizationLog(Ticket ticket,CategorizationRule appliedRule,String matchedKeyword,String assignedCategory,String assignedUrgency){
        this.ticket=ticket;
        this.appliedRule=appliedRule;
        this.matchedKeyword=matchedKeyword;
