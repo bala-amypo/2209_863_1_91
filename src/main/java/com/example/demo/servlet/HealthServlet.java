@@ -8,7 +8,7 @@ import java.io.*;
 public class HealthServlet extends HttpServlet{
 
     @Override
-    protected void deoGet(HttpServletRequest req,HttpServlet resp) throws IOException
+    protected void deoGet(HttpServletRequest req,HttpServletResponse resp) throws IOException,
     {
         resp.getWriter().write("OK");
     }
