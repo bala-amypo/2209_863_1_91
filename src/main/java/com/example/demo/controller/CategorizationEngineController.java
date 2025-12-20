@@ -9,23 +9,23 @@ import java.util.*;
 @RequestMapping("/api/categorize")
 public class CategorizationEngineController{
 
-    private final CategorizationLogService CategorizationLogService;
-    public CategorizationEngineController(CategorizationLogService categorizationLogService){
-        this.categorizationLogService=categorizationLogService;
+    private final CategorizationEngineService CategorizationEngineService;
+    public CategorizationEngineController(CategorizationEngineService categorizationEngineService){
+        this.categorizationEngineService=categorizationEngineService;
     }
 
     @PostMapping("/run/{ticketId}")
     public Ticket categorizeTicket(@PathVariable Long ticketId){
-        return categorizationLogService.categorizeTicket(ticketId);
+        return categorizationEngineService.categorizeTicket(ticketId);
     }
 
     @GetMapping("/logs/{ticketId}")
     public List<CategorizationLog> getLogsForTicket(@PathVariable Long ticketId){
-        return categorizationLogService.getLogsForTicket(ticketId);
+        return categorizationEngineService.getLogsForTicket(ticketId);
     }
 
     @GetMapping("/log/{id}")
     public CategorizationLog getLog(@PathVariable Long id){
-        return categorizationLogService.getLog(id );
+        return categorizationEngineService.getLog(id );
     }
 }
