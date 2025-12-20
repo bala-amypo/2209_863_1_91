@@ -11,16 +11,23 @@ import java.util.*;
 @Service
 public class CategorizationRuleServiceImpl implements CategorizationRuleService{
 
-    private final CategorizationRuleRepository categorizationRuleRepository;
+    private final CategorizationRuleRepository ruleRepository;
     private final CategoryRepository categoryRepository;
-    public CategorizationRuleServiceImpl(CategorizationRuleRepository categorizationRuleRepository,CategoryRepository categoryRepository){
-        this.categorizationRuleRepository=categorizationRuleRepository;
+    public CategorizationRuleServiceImpl(CategorizationRuleRepository ruleRepository,CategoryRepository categoryRepository){
+        this.ruleRepository=ruleRepository;
         this.categoryRepository=categoryRepository;
     }
 
     @Override
     public CategorizationRule createRule(Long categoryId,CategorizationRule rule){
-        Category category=categoryRepository.
+        Category category=categoryRepository.findById(categoryId).orElseThrow(()->new RuntimeException("Category not found"));
+        rule.setCategory(category);
+        return ruleRepository.save(rule);
+    }
+
+    @Override
+    public List<CategorizationRule>getRulesByCategory(Long categoryId){
+        
     }
     
 }
