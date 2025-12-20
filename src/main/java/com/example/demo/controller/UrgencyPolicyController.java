@@ -21,7 +21,7 @@ public class UrgencyPolicyController{
 
     @GetMapping
     public List<UrgencyPolicy> getAllPolicies(){
-        return urgencyPolicyService.listAllPolicies();
+        return urgencyPolicyService.getAllPolicies();
     }
 
     @GetMapping("/{id}")

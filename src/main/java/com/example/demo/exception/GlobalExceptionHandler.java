@@ -10,7 +10,7 @@ public class GlobalExceptionHandler{
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<String>handleResourceNotFound(ResourceNotFoundException ex){
-        return new ResponseEntity<>(ex.getMesage(),HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
     
     @ExceptionHandler(IllegalArgumentException.class)
