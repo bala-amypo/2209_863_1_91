@@ -25,5 +25,7 @@ public class UrgencyPolicyController{
     }
 
     @GetMapping("/{id}")
-    public UrgencyPolicy 
+    public UrgencyPolicy getPolicyById(@PathVariable Long id){
+        return urgencyPolicyService.getPolicyById(id);
+    }
 }
