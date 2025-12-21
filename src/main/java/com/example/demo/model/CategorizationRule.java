@@ -10,7 +10,7 @@ public class CategorizationRule{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=cascade.PERSIST)
     private  Category category;
 
     @Column(nullable=false)
