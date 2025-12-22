@@ -2,103 +2,68 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-public class Ticket{
-
+@Table(name = "tickets")
+public class Ticket {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String title;
 
-    @Column
+    @Column(nullable = false)
     private String description;
 
     private String location;
 
     private String createdBy;
 
-    private LocalDateTime createdAt;
-
-    @PrePersist
-    public void prePersist(){
-        createdAt=LocalDateTime.now();
-    }
-
     @ManyToOne
+    @JoinColumn(name = "assigned_category_id")
     private Category assignedCategory;
 
-    private String urgencyLevel;
+    @Column(nullable = false)
+    private String urgencyLevel = "LOW";
 
-    public Long getId(){
-    return id;
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
+    private List<CategorizationLog> logs;
+
+    public Ticket() {}
+
+    public Ticket(String title, String description, String location, String createdBy) {
+        this.title = title;
+        this.description = description;
+        this.location = location;
+        this.createdBy = createdBy;
     }
 
-    public String getTitle(){
-    return title;
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
     }
 
-    public void setTitle(String title){
-    this.title=title;
-    }
-
-    public String getDescription(){
-    return description;
-    }
-
-    public void setDecription(String description){
-    this.description=description;
-    }
-
-    public String getLocation(){
-    return location;
-    }
-
-    public void setLocation(String location){
-    this.location=location;
-    }
-
-    public String getCreatedBy(){
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy){
-        this.createdBy=createdBy;
-    }
-
-    public Category getAssignedCategory(){
-        return assignedCategory;
-    }
-
-    public void setAssignedCategory(Category assignedCategory){
-        this.assignedCategory=assignedCategory;
-    }
-
-    public String getUrgecyLevel(){
-        return urgencyLevel;
-    }
-
-    public void setUrgencyLevel(String urgencyLevel){
-        this.urgencyLevel=urgencyLevel;
-    }
-
-    public LocalDateTime getCreatedAt(){
-        return createdAt;
-    }
-
-    public Ticket(){
-
-    }
-
-    public Ticket(String title,String description,String location,String createdBy,Category assignedCategory,String urgencyLevel){
-        this.title=title;
-        this.description=description;
-        this.location=location;
-        this.createdBy=createdBy;
-        this.assignedCategory=assignedCategory;
-        this.urgencyLevel=urgencyLevel;
-    }
-
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+    public String getCreatedBy() { return createdBy; }
+    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
+    public Category getAssignedCategory() { return assignedCategory; }
+    public void setAssignedCategory(Category assignedCategory) { this.assignedCategory = assignedCategory; }
+    public String getUrgencyLevel() { return urgencyLevel; }
+    public void setUrgencyLevel(String urgencyLevel) { this.urgencyLevel = urgencyLevel; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public List<CategorizationLog> getLogs() { return logs; }
+    public void setLogs(List<CategorizationLog> logs) { this.logs = logs; }
 }
