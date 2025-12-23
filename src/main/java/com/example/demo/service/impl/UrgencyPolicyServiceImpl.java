@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.exception.*;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.UrgencyPolicy;
 import com.example.demo.repository.UrgencyPolicyRepository;
@@ -19,7 +18,7 @@ public class UrgencyPolicyServiceImpl implements UrgencyPolicyService {
     @Override
     public UrgencyPolicy createPolicy(UrgencyPolicy policy) {
         if (policy == null) {
-            throw new RuntimeException("Policy not found");
+            throw new IllegalArgumentException("Policy not found");
         }
         return policyRepository.save(policy);
     }
