@@ -2,8 +2,10 @@ package com.example.demo.repository;
 
 import com.example.demo.model.UrgencyPolicy;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.*;
+import org.springframework.stereotype.Repository;
+import java.util.List;
 
-public interface UrgencyPolicyRepository extends JpaRepository<UrgencyPolicy,Long>{
-    List<UrgencyPolicy>findByKeywordContainingIgnoreCase(String keyword);
+@Repository
+public interface UrgencyPolicyRepository extends JpaRepository<UrgencyPolicy, Long> {
+    List<UrgencyPolicy> findByKeywordContainingIgnoreCase(String keyword);
 }
