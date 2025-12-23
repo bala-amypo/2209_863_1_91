@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.exception.*;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Ticket;
 import com.example.demo.repository.TicketRepository;
@@ -19,7 +18,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public Ticket createTicket(Ticket ticket) {
         if (ticket.getDescription() == null || ticket.getDescription().length() < 10) {
-            throw new RuntimeException("Ticket not found");
+            throw new IllegalArgumentException("Ticket not found");
         }
         return ticketRepository.save(ticket);
     }
