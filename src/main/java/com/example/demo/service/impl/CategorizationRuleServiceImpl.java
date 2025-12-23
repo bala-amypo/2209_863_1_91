@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.exception.*;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Category;
 import com.example.demo.model.CategorizationRule;
@@ -23,10 +22,10 @@ public class CategorizationRuleServiceImpl implements CategorizationRuleService 
     @Override
     public CategorizationRule createRule(Long categoryId, CategorizationRule rule) {
         if (categoryId == null) {
-            throw new RuntimeException("Category ID cannot be null");
+            throw new IllegalArgumentException("Category ID cannot be null");
         }
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new RuntimeException("Rule not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Rule not found"));
         rule.setCategory(category);
         return ruleRepository.save(rule);
     }
