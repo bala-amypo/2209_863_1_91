@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.exception.*;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Category;
 import com.example.demo.repository.CategoryRepository;
@@ -19,7 +18,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category createCategory(Category category) {
         if (category == null) {
-            throw new RuntimeException("Category not found");
+            throw new IllegalArgumentException("Category not found");
         }
         return categoryRepository.save(category);
     }
