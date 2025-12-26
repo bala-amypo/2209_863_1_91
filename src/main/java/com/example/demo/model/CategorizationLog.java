@@ -13,7 +13,7 @@ public class CategorizationLog {
 
     private String previousCategory;
     private String newCategory;
-    private String status;                 // Example: SUCCESS / FAILED
+    private String status;                 
 
     private LocalDateTime timestamp;
 
