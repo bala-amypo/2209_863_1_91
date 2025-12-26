@@ -8,32 +8,20 @@ import java.time.LocalDateTime;
 public class Ticket {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private String title;
-
-    @Column(length = 500)
     private String description;
+    private String urgencyLevel;
 
     @ManyToOne
     private Category assignedCategory;
 
-    private String urgencyLevel;
     private LocalDateTime createdAt;
 
-    public Ticket() {}
-
-    public Ticket(Long id, String title, String description, Category assignedCategory, String urgencyLevel) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.assignedCategory = assignedCategory;
-        this.urgencyLevel = urgencyLevel;
-    }
-
     @PrePersist
-    protected void onCreate() {
+    public void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
 
@@ -46,11 +34,11 @@ public class Ticket {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public Category getAssignedCategory() { return assignedCategory; }
-    public void setAssignedCategory(Category assignedCategory) { this.assignedCategory = assignedCategory; }
-
     public String getUrgencyLevel() { return urgencyLevel; }
     public void setUrgencyLevel(String urgencyLevel) { this.urgencyLevel = urgencyLevel; }
+
+    public Category getAssignedCategory() { return assignedCategory; }
+    public void setAssignedCategory(Category assignedCategory) { this.assignedCategory = assignedCategory; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
 }

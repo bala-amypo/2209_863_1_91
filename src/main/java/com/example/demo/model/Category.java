@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -9,26 +10,19 @@ import java.util.Set;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private String categoryName;
     private String defaultUrgency;
+
+    @ManyToMany
+    private Set<UrgencyPolicy> urgencyPolicies = new HashSet<>();
+
     private LocalDateTime createdAt;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<UrgencyPolicy> urgencyPolicies;
-
-    public Category() {}
-
-    public Category(Long id, String categoryName, String defaultUrgency) {
-        this.id = id;
-        this.categoryName = categoryName;
-        this.defaultUrgency = defaultUrgency;
-    }
-
     @PrePersist
-    protected void onCreate() {
+    public void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
 
@@ -41,8 +35,6 @@ public class Category {
     public String getDefaultUrgency() { return defaultUrgency; }
     public void setDefaultUrgency(String defaultUrgency) { this.defaultUrgency = defaultUrgency; }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-
     public Set<UrgencyPolicy> getUrgencyPolicies() { return urgencyPolicies; }
-    public void setUrgencyPolicies(Set<UrgencyPolicy> urgencyPolicies) { this.urgencyPolicies = urgencyPolicies; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
 }
