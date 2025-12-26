@@ -1,9 +1,11 @@
 package com.example.demo.model;
-
+impo
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id

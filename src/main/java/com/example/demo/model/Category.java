@@ -1,13 +1,15 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-
+import lombok.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "categories")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
 
     @Id
