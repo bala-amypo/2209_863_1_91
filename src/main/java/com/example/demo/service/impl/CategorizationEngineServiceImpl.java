@@ -9,6 +9,7 @@ import com.example.demo.util.TicketCategorizationEngine;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CategorizationEngineServiceImpl
         implements CategorizationEngineService {
 

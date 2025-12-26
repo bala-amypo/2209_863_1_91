@@ -5,6 +5,7 @@ import com.example.demo.model.Ticket;
 import com.example.demo.repository.TicketRepository;
 import com.example.demo.service.TicketService;
 
+@Service
 public class TicketServiceImpl implements TicketService {
 
     private final TicketRepository ticketRepository;

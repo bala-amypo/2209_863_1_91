@@ -5,6 +5,7 @@ import com.example.demo.repository.CategorizationRuleRepository;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.service.CategorizationRuleService;
 
+@Service
 public class CategorizationRuleServiceImpl
         implements CategorizationRuleService {
 
