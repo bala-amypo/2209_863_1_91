@@ -2,75 +2,82 @@ package com.example.demo.util;
 
 import com.example.demo.model.*;
 import org.springframework.stereotype.Component;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.regex.Pattern;
+import java.util.Comparator;
 
 @Component
 public class TicketCategorizationEngine {
-
-    public CategorizationResult categorize(Ticket ticket, List<Category> categories, List<CategorizationRule> rules, List<UrgencyPolicy> policies) {
-        Category matchedCategory = null;
-        CategorizationRule matchedRule = null;
-        String matchedKeyword = null;
-        String urgency = "LOW";
-
-        // Sort rules by priority (higher first)
-        rules.sort((r1, r2) -> r2.getPriority().compareTo(r1.getPriority()));
-
-        // Find matching rule
-        for (CategorizationRule rule : rules) {
-            if (matchesRule(ticket.getDescription(), rule)) {
-                matchedCategory = rule.getCategory();
-                matchedRule = rule;
-                matchedKeyword = rule.getKeyword();
-                urgency = matchedCategory.getDefaultUrgency();
-                break;
-            }
+    
+    // Method signature matches the test cases - takes 4 parameters, returns logs via parameter
+    public void categorize(
+            Ticket ticket, 
+            List<Category> categories,
+            List<CategorizationRule> rules, 
+            List<UrgencyPolicy> policies,
+            List<CategorizationLog> logs) {
+        
+        String title = ticket.getTitle() != null ? ticket.getTitle().toLowerCase() : "";
+        String description = ticket.getDescription() != null ? ticket.getDescription().toLowerCase() : "";
+        String fullText = title + " " + description;
+        
+        // Apply categorization rules
+        CategorizationRule matchedRule = rules.stream()
+            .filter(rule -> matches(fullText, rule))
+            .max(Comparator.comparing(CategorizationRule::getPriority))
+            .orElse(null);
+        
+        if (matchedRule != null) {
+            Category category = matchedRule.getCategory();
+            ticket.setAssignedCategory(category);
+            ticket.setUrgencyLevel(category.getDefaultUrgency());
+            
+            // Log the categorization
+            CategorizationLog log = new CategorizationLog();
+            log.setTicket(ticket);
+            log.setAppliedRule(matchedRule);
+            log.setAction("CATEGORIZED to " + category.getCategoryName());
+            log.setTimestamp(LocalDateTime.now());
+            logs.add(log);
         }
-
-        // Apply urgency policies
-        for (UrgencyPolicy policy : policies) {
-            if (ticket.getDescription().toLowerCase().contains(policy.getKeyword().toLowerCase())) {
-                urgency = policy.getUrgencyOverride();
-                break;
-            }
+        
+        // Apply urgency policy overrides
+        UrgencyPolicy matchedPolicy = policies.stream()
+            .filter(policy -> fullText.contains(policy.getKeyword().toLowerCase()))
+            .findFirst()
+            .orElse(null);
+        
+        if (matchedPolicy != null) {
+            ticket.setUrgencyLevel(matchedPolicy.getUrgencyOverride());
+            
+            // Log the urgency override
+            CategorizationLog log = new CategorizationLog();
+            log.setTicket(ticket);
+            log.setAction("URGENCY_OVERRIDE to " + matchedPolicy.getUrgencyOverride());
+            log.setTimestamp(LocalDateTime.now());
+            logs.add(log);
         }
-
-        return new CategorizationResult(matchedCategory, matchedRule, matchedKeyword, urgency);
+        
+        // Set default urgency if none assigned
+        if (ticket.getUrgencyLevel() == null) {
+            ticket.setUrgencyLevel("LOW");
+        }
     }
-
-    private boolean matchesRule(String description, CategorizationRule rule) {
-        String keyword = rule.getKeyword();
+    
+    private boolean matches(String text, CategorizationRule rule) {
+        String keyword = rule.getKeyword().toLowerCase();
         String matchType = rule.getMatchType();
         
-        switch (matchType.toUpperCase()) {
-            case "EXACT":
-                return description.equals(keyword);
-            case "CONTAINS":
-                return description.toLowerCase().contains(keyword.toLowerCase());
-            case "REGEX":
-                return Pattern.compile(keyword, Pattern.CASE_INSENSITIVE).matcher(description).find();
-            default:
-                return false;
+        if ("CONTAINS".equalsIgnoreCase(matchType)) {
+            return text.contains(keyword);
+        } else if ("EXACT".equalsIgnoreCase(matchType)) {
+            return text.equals(keyword);
+        } else if ("STARTS_WITH".equalsIgnoreCase(matchType)) {
+            return text.startsWith(keyword);
+        } else if ("ENDS_WITH".equalsIgnoreCase(matchType)) {
+            return text.endsWith(keyword);
         }
-    }
-
-    public static class CategorizationResult {
-        private final Category category;
-        private final CategorizationRule rule;
-        private final String matchedKeyword;
-        private final String urgency;
-
-        public CategorizationResult(Category category, CategorizationRule rule, String matchedKeyword, String urgency) {
-            this.category = category;
-            this.rule = rule;
-            this.matchedKeyword = matchedKeyword;
-            this.urgency = urgency;
-        }
-
-        public Category getCategory() { return category; }
-        public CategorizationRule getRule() { return rule; }
-        public String getMatchedKeyword() { return matchedKeyword; }
-        public String getUrgency() { return urgency; }
+        
+        return text.contains(keyword); // default to contains
     }
 }

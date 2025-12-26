@@ -7,6 +7,7 @@ import com.example.demo.repository.CategoryRepository;
 import com.example.demo.service.CategorizationRuleService;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategorizationRuleServiceImpl implements CategorizationRuleService {
@@ -34,5 +35,13 @@ public class CategorizationRuleServiceImpl implements CategorizationRuleService 
     @Override
     public List<CategorizationRule> getAllRules() {
         return ruleRepository.findAll();
+    }
+    
+    @Override
+    public List<CategorizationRule> getRulesByCategory(Long categoryId) {
+        return ruleRepository.findAll().stream()
+            .filter(rule -> rule.getCategory() != null && 
+                           rule.getCategory().getId().equals(categoryId))
+            .collect(Collectors.toList());
     }
 }

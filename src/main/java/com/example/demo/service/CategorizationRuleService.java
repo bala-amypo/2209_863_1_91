@@ -7,5 +7,5 @@ public interface CategorizationRuleService {
     CategorizationRule createRule(CategorizationRule rule);
     CategorizationRule getRule(Long id);
     List<CategorizationRule> getAllRules();
-    List<CategorizationRule> getRulesByCategory(Long categoryId);  // Add this line
+    List<CategorizationRule> getRulesByCategory(Long categoryId);
 }
