@@ -19,7 +19,7 @@ public class CategorizationLog {
 
     @ManyToOne
     @JoinColumn(name = "ticket_id", nullable = false)
-    private Ticket ticket;                // FOREIGN KEY to Ticket
+    private Ticket ticket;            
 
     public CategorizationLog() {
     }
