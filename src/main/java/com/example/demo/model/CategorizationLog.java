@@ -24,7 +24,7 @@ public class CategorizationLog {
     private LocalDateTime timestamp;
     
     @PrePersist
-    protected void prePersist() {
+    protected void onCreate() {
         this.timestamp = LocalDateTime.now();
     }
     

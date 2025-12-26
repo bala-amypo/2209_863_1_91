@@ -24,7 +24,7 @@ public class CategorizationRule {
     private LocalDateTime createdAt;
     
     @PrePersist
-    protected void prePersist() {
+    protected void onCreate() {
         this.createdAt = LocalDateTime.now();
         if (this.priority == null) {
             this.priority = 1;

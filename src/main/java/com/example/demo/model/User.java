@@ -23,7 +23,7 @@ public class User {
     private LocalDateTime createdAt;
     
     @PrePersist
-    protected void prePersist() {
+    protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
     
