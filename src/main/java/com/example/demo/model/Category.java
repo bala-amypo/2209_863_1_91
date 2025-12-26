@@ -1,58 +1,77 @@
+
 package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "categories")
 public class Category {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, unique = true)
+    
+    @Column(nullable = false)
     private String categoryName;
-
-    private String description;
-
-    @Column(nullable = false)
+    
     private String defaultUrgency;
-
-    @Column(nullable = false)
+    
+    @ManyToMany
+    @JoinTable(
+        name = "category_urgency_policies",
+        joinColumns = @JoinColumn(name = "category_id"),
+        inverseJoinColumns = @JoinColumn(name = "policy_id")
+    )
+    private Set<UrgencyPolicy> urgencyPolicies = new HashSet<>();
+    
     private LocalDateTime createdAt;
-
-    @OneToMany(mappedBy = "assignedCategory", cascade = CascadeType.ALL)
-    private List<Ticket> tickets;
-
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<CategorizationRule> rules;
-
-    public Category() {}
-
-    public Category(String categoryName, String description, String defaultUrgency) {
+    
+    @PrePersist
+    protected void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
+    
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public String getCategoryName() {
+        return categoryName;
+    }
+    
+    public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-        this.description = description;
+    }
+    
+    public String getDefaultUrgency() {
+        return defaultUrgency;
+    }
+    
+    public void setDefaultUrgency(String defaultUrgency) {
         this.defaultUrgency = defaultUrgency;
     }
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
+    
+    public Set<UrgencyPolicy> getUrgencyPolicies() {
+        return urgencyPolicies;
     }
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getCategoryName() { return categoryName; }
-    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-    public String getDefaultUrgency() { return defaultUrgency; }
-    public void setDefaultUrgency(String defaultUrgency) { this.defaultUrgency = defaultUrgency; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-    public List<Ticket> getTickets() { return tickets; }
-    public void setTickets(List<Ticket> tickets) { this.tickets = tickets; }
-    public List<CategorizationRule> getRules() { return rules; }
-    public void setRules(List<CategorizationRule> rules) { this.rules = rules; }
+    
+    public void setUrgencyPolicies(Set<UrgencyPolicy> urgencyPolicies) {
+        this.urgencyPolicies = urgencyPolicies;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
