@@ -4,7 +4,6 @@ import com.example.demo.model.UrgencyPolicy;
 import java.util.List;
 
 public interface UrgencyPolicyService {
-    UrgencyPolicy createPolicy(UrgencyPolicy policy);
-    UrgencyPolicy getPolicy(Long id);
-    List<UrgencyPolicy> getAllPolicies();
+    UrgencyPolicy addPolicy(UrgencyPolicy policy);
+    List<UrgencyPolicy> search(String keyword);
 }

@@ -4,8 +4,7 @@ import com.example.demo.model.CategorizationRule;
 import java.util.List;
 
 public interface CategorizationRuleService {
-    CategorizationRule createRule(CategorizationRule rule);
-    CategorizationRule getRule(Long id);
-    List<CategorizationRule> getAllRules();
-    List<CategorizationRule> getRulesByCategory(Long categoryId);
+    CategorizationRule addRule(CategorizationRule rule);
+    List<CategorizationRule> getRules();
+    List<CategorizationRule> search(String keyword);
 }
