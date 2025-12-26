@@ -1,5 +1,5 @@
 package com.example.demo.model;
-impo
+import lombok.*;
 import jakarta.persistence.*;
 
 @Entity
