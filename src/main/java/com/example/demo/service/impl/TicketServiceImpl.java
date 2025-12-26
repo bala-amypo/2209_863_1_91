@@ -9,26 +9,24 @@ import java.util.List;
 
 @Service
 public class TicketServiceImpl implements TicketService {
+    
     private final TicketRepository ticketRepository;
-
+    
     public TicketServiceImpl(TicketRepository ticketRepository) {
         this.ticketRepository = ticketRepository;
     }
-
+    
     @Override
     public Ticket createTicket(Ticket ticket) {
-        if (ticket.getDescription() == null || ticket.getDescription().length() < 10) {
-            throw new IllegalArgumentException("Ticket not found");
-        }
         return ticketRepository.save(ticket);
     }
-
+    
     @Override
     public Ticket getTicket(Long id) {
         return ticketRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Ticket not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("Ticket not found with id: " + id));
     }
-
+    
     @Override
     public List<Ticket> getAllTickets() {
         return ticketRepository.findAll();
