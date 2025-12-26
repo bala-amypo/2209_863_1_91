@@ -1,3 +1,4 @@
+
 package com.example.demo.service.impl;
 
 import com.example.demo.exception.ResourceNotFoundException;
@@ -6,20 +7,27 @@ import com.example.demo.repository.*;
 import com.example.demo.service.CategorizationEngineService;
 import com.example.demo.util.TicketCategorizationEngine;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CategorizationEngineServiceImpl implements CategorizationEngineService {
+    
     private final TicketRepository ticketRepository;
     private final CategoryRepository categoryRepository;
     private final CategorizationRuleRepository ruleRepository;
     private final UrgencyPolicyRepository policyRepository;
     private final CategorizationLogRepository logRepository;
     private final TicketCategorizationEngine engine;
-
-    public CategorizationEngineServiceImpl(TicketRepository ticketRepository, CategoryRepository categoryRepository,
-                                         CategorizationRuleRepository ruleRepository, UrgencyPolicyRepository policyRepository,
-                                         CategorizationLogRepository logRepository, TicketCategorizationEngine engine) {
+    
+    public CategorizationEngineServiceImpl(
+            TicketRepository ticketRepository,
+            CategoryRepository categoryRepository,
+            CategorizationRuleRepository ruleRepository,
+            UrgencyPolicyRepository policyRepository,
+            CategorizationLogRepository logRepository,
+            TicketCategorizationEngine engine) {
         this.ticketRepository = ticketRepository;
         this.categoryRepository = categoryRepository;
         this.ruleRepository = ruleRepository;
@@ -27,41 +35,38 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
         this.logRepository = logRepository;
         this.engine = engine;
     }
-
+    
     @Override
+    @Transactional
     public Ticket categorizeTicket(Long ticketId) {
         Ticket ticket = ticketRepository.findById(ticketId)
-                .orElseThrow(() -> new ResourceNotFoundException("Ticket not found"));
-
+            .orElseThrow(() -> new ResourceNotFoundException("Ticket not found with id: " + ticketId));
+        
         List<Category> categories = categoryRepository.findAll();
         List<CategorizationRule> rules = ruleRepository.findAll();
         List<UrgencyPolicy> policies = policyRepository.findAll();
-
-        TicketCategorizationEngine.CategorizationResult result = engine.categorize(ticket, categories, rules, policies);
-
-        if (result.getCategory() != null) {
-            ticket.setAssignedCategory(result.getCategory());
-            ticket.setUrgencyLevel(result.getUrgency());
-            ticketRepository.save(ticket);
-
-            CategorizationLog log = new CategorizationLog(
-                    ticket, result.getRule(), result.getMatchedKeyword(),
-                    result.getCategory().getCategoryName(), result.getUrgency()
-            );
-            logRepository.save(log);
+        List<CategorizationLog> logs = new ArrayList<>();
+        
+        engine.categorize(ticket, categories, rules, policies, logs);
+        
+        Ticket savedTicket = ticketRepository.save(ticket);
+        
+        for (CategorizationLog log : logs) {
+            log.setTicket(savedTicket);
         }
-
-        return ticket;
+        logRepository.saveAll(logs);
+        
+        return savedTicket;
     }
-
+    
     @Override
     public List<CategorizationLog> getLogsForTicket(Long ticketId) {
-        return logRepository.findByTicketId(ticketId);
+        return logRepository.findByTicket_Id(ticketId);
     }
-
+    
     @Override
-    public CategorizationLog getLog(Long id) {
-        return logRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Log not found"));
+    public CategorizationLog getLog(Long logId) {
+        return logRepository.findById(logId)
+            .orElseThrow(() -> new ResourceNotFoundException("Log not found with id: " + logId));
     }
 }
