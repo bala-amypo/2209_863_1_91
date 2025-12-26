@@ -1,4 +1,3 @@
-
 package com.example.demo.service.impl;
 
 import com.example.demo.exception.ResourceNotFoundException;
@@ -47,6 +46,7 @@ public class CategorizationEngineServiceImpl implements CategorizationEngineServ
         List<UrgencyPolicy> policies = policyRepository.findAll();
         List<CategorizationLog> logs = new ArrayList<>();
         
+        // Call with 5 parameters - logs list is passed and populated by the engine
         engine.categorize(ticket, categories, rules, policies, logs);
         
         Ticket savedTicket = ticketRepository.save(ticket);
