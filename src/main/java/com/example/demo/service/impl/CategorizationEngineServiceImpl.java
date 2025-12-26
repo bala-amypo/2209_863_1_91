@@ -5,7 +5,7 @@ import com.example.demo.model.*;
 import com.example.demo.repository.*;
 import com.example.demo.service.CategorizationEngineService;
 import com.example.demo.util.TicketCategorizationEngine;
-
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 

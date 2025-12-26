@@ -4,6 +4,7 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Ticket;
 import com.example.demo.repository.TicketRepository;
 import com.example.demo.service.TicketService;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TicketServiceImpl implements TicketService {
