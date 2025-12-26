@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AuthRequest;
 import com.example.demo.dto.AuthResponse;
 import com.example.demo.model.User;
-import com.example.demo.security.JwtUtil;
+import com.example.demo.security.JwtTokenProvider;
 import com.example.demo.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +17,12 @@ import java.util.Map;
 @Tag(name = "Auth", description = "Authentication endpoints")
 public class AuthController {
     private final UserService userService;
-    private final JwtUtil jwtUtil;
+    private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
-    public AuthController(UserService userService, JwtUtil jwtUtil, PasswordEncoder passwordEncoder) {
+    public AuthController(UserService userService, JwtTokenProvider jwtTokenProvider, PasswordEncoder passwordEncoder) {
         this.userService = userService;
-        this.jwtUtil = jwtUtil;
+        this.jwtTokenProvider = jwtTokenProvider;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -32,7 +32,7 @@ public class AuthController {
         
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", savedUser.getRole());
-        String token = jwtUtil.generateToken(claims, savedUser.getEmail());
+        String token = jwtTokenProvider.generateToken(claims, savedUser.getEmail());
         
         AuthResponse response = new AuthResponse(token, savedUser.getId(), savedUser.getEmail(), savedUser.getRole());
         return ResponseEntity.ok(response);
@@ -45,7 +45,7 @@ public class AuthController {
         if (passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             Map<String, Object> claims = new HashMap<>();
             claims.put("role", user.getRole());
-            String token = jwtUtil.generateToken(claims, user.getEmail());
+            String token = jwtTokenProvider.generateToken(claims, user.getEmail());
             
             AuthResponse response = new AuthResponse(token, user.getId(), user.getEmail(), user.getRole());
             return ResponseEntity.ok(response);
