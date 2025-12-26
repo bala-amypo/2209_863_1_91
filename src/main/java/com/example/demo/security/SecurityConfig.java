@@ -1,6 +1,5 @@
 package com.example.demo.security;
 
-import com.example.demo.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,11 +14,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfig {
 
-    private final UserServiceImpl userService;
+    private final CustomUserDetailsService userDetailsService;
     private final JwtAuthenticationFilter jwtFilter;
 
-    public SecurityConfig(UserServiceImpl userService, JwtAuthenticationFilter jwtFilter) {
-        this.userService = userService;
+    public SecurityConfig(CustomUserDetailsService userDetailsService, JwtAuthenticationFilter jwtFilter) {
+        this.userDetailsService = userDetailsService;
         this.jwtFilter = jwtFilter;
     }
 
@@ -31,7 +30,7 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userService)
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder())
                 .and()
                 .build();
