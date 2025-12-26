@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-@NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
     @Id

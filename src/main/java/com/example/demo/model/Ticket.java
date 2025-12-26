@@ -6,8 +6,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tickets")
-@NoArgsConstructor
-@AllArgsConstructor
 public class Ticket {
 
     @Id

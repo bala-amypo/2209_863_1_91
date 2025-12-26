@@ -8,8 +8,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "urgency_policies")
-@NoArgsConstructor
-@AllArgsConstructor
 public class UrgencyPolicy {
 
     @Id

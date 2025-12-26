@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "categorization_rules")
 public class CategorizationRule {
 
