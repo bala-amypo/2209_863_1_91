@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CategorizationRuleRepository extends JpaRepository<CategorizationRule, Long> {
-    List<CategorizationRule> findByKeywordContainingIgnoreCase(String keyword);
+    List<CategorizationRule> findByCategoryId(Long categoryId);
 }
