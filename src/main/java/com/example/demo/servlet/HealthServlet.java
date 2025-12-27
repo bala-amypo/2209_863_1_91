@@ -1,21 +1,20 @@
 package com.example.demo.servlet;
 
+import java.io.IOException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-
 @WebServlet(urlPatterns = "/health")
 public class HealthServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
             throws IOException {
 
-        resp.setStatus(HttpServletResponse.SC_OK);
-        resp.setContentType("text/plain");
-        resp.getWriter().write("Application is healthy");
+        response.getWriter().write("OK");
     }
 }
