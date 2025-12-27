@@ -40,7 +40,11 @@ demo
 public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
         .authorizeHttpRequests(auth -> auth
-           
+            .requestMatchers(
+                "/swagger-ui/**",
+                "/v3/api-docs/**",
+                "/swagger-resources/**"
+            ).permitAll()
         )
         .csrf(csrf -> csrf.disable());
     return http.build();
@@ -51,10 +55,9 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/api/auth/**").permitAll()
-                     .requestMatchers("/swagger-ui/**",
-                "/v3/api-docs/**",
-            ).permitAll()
+                    
             .anyRequest().authenticated()
+
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
