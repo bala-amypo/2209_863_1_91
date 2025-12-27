@@ -18,14 +18,21 @@ public class CategorizationLog {
     private CategorizationRule appliedRule;
 
     private String appliedUrgency;
-
     private LocalDateTime createdAt;
+
+    public CategorizationLog() {}
+
+    public CategorizationLog(Ticket ticket, CategorizationRule appliedRule, String appliedUrgency) {
+        this.ticket = ticket;
+        this.appliedRule = appliedRule;
+        this.appliedUrgency = appliedUrgency;
+    }
 
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
-
+    
     public Long getId() {
         return id;
     }

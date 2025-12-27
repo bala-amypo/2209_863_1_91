@@ -14,13 +14,23 @@ public class Category {
     private Long id;
 
     private String categoryName;
-
     private String defaultUrgency;
-
     private LocalDateTime createdAt;
 
     @ManyToMany
+    @JoinTable(
+        name = "category_urgency_policies",
+        joinColumns = @JoinColumn(name = "category_id"),
+        inverseJoinColumns = @JoinColumn(name = "policy_id")
+    )
     private Set<UrgencyPolicy> urgencyPolicies = new HashSet<>();
+
+    public Category() {}
+
+    public Category(String categoryName, String defaultUrgency) {
+        this.categoryName = categoryName;
+        this.defaultUrgency = defaultUrgency;
+    }
 
     @PrePersist
     public void prePersist() {

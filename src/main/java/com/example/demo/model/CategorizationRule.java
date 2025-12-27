@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "categorization_rules")
 public class CategorizationRule {
@@ -10,19 +11,23 @@ public class CategorizationRule {
     private Long id;
 
     private String keyword;
-
     private String matchType;
-
     private Integer priority;
 
     @ManyToOne
     private Category category;
 
+    public CategorizationRule() {}
+
+    public CategorizationRule(String keyword, String matchType, Category category) {
+        this.keyword = keyword;
+        this.matchType = matchType;
+        this.category = category;
+    }
+
     @PrePersist
     public void prePersist() {
-        if (this.priority == null) {
-            this.priority = 1;
-        }
+        if (this.priority == null) this.priority = 1;
     }
 
     public Long getId() {

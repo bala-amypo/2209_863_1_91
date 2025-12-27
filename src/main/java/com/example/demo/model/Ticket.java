@@ -23,14 +23,19 @@ public class Ticket {
 
     private LocalDateTime createdAt;
 
+    public Ticket() {}
+
+    public Ticket(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
-        if (this.urgencyLevel == null) {
-            this.urgencyLevel = "LOW";
-        }
+        if (this.urgencyLevel == null) this.urgencyLevel = "LOW";
     }
-
+    
     public Long getId() {
         return id;
     }

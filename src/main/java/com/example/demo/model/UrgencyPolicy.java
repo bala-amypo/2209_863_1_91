@@ -14,20 +14,26 @@ public class UrgencyPolicy {
     private Long id;
 
     private String policyName;
-
     private String keyword;
-
     private String urgencyOverride;
-
     private LocalDateTime createdAt;
 
     @ManyToMany(mappedBy = "urgencyPolicies")
     private Set<Category> categories = new HashSet<>();
 
+    public UrgencyPolicy() {}
+
+    public UrgencyPolicy(String policyName, String keyword, String urgencyOverride) {
+        this.policyName = policyName;
+        this.keyword = keyword;
+        this.urgencyOverride = urgencyOverride;
+    }
+
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
+
 
     public Long getId() {
         return id;
