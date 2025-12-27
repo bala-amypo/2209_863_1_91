@@ -36,6 +36,15 @@ demo
                 .and()
                 .build();
     }
+    @Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -> auth
+           
+        )
+        .csrf(csrf -> csrf.disable());
+    return http.build();
+}
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -43,7 +52,7 @@ demo
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/api/auth/**").permitAll()
                      .requestMatchers("/swagger-ui/**",
-                "/v3/api-docs/**"
+                "/v3/api-docs/**",
             ).permitAll()
             .anyRequest().authenticated()
             )
