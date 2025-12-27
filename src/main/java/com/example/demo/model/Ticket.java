@@ -35,7 +35,6 @@ public class Ticket {
         this.createdAt = LocalDateTime.now();
         if (this.urgencyLevel == null) this.urgencyLevel = "LOW";
     }
-    
     public Long getId() {
         return id;
     }

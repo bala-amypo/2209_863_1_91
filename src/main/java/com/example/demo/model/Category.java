@@ -37,6 +37,7 @@ public class Category {
         this.createdAt = LocalDateTime.now();
     }
 
+
     public Long getId() {
         return id;
     }

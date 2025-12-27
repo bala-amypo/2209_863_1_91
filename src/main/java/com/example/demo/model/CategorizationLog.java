@@ -32,7 +32,6 @@ public class CategorizationLog {
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
-    
     public Long getId() {
         return id;
     }

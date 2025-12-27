@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "categorization_rules")
 public class CategorizationRule {
@@ -29,7 +28,7 @@ public class CategorizationRule {
     public void prePersist() {
         if (this.priority == null) this.priority = 1;
     }
-
+    
     public Long getId() {
         return id;
     }
