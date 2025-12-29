@@ -20,7 +20,7 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("Ticket Categorizer API")
-                        .description("API for managing contracts, deliveries, breach rules, and penalty calculations")
+                        .description("API for managing tickets, deliveries, breach rules, and penalty calculations")
                         .version("1.0.0"))
                 .servers(List.of(
                         new Server().url("https://9100.32procr.amypo.ai/")
