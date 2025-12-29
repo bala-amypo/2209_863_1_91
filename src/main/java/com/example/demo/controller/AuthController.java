@@ -36,8 +36,7 @@ public class AuthController {
         );
 
         User user = userService.findByEmail(request.getEmail());
-
-        // JWT generation would normally happen here
+        
         String fakeJwt = "jwt-token-placeholder";
 
         return new AuthResponse(
