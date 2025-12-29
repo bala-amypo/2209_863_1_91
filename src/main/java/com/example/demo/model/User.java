@@ -18,6 +18,14 @@ public class User {
     @Column(nullable = false)
     private String role = "USER";
 
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+
     public User() {}
 
     public User(String email, String password, String role) {
