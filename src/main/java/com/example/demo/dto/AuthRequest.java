@@ -6,7 +6,7 @@ public class AuthRequest {
     private String password;
 
     public AuthRequest() {
-        // default constructor for JSON deserialization
+        
     }
 
     public String getEmail() {
