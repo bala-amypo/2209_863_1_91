@@ -11,10 +11,10 @@ public class User {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String email="deepi@gmail.com";
 
     @Column(nullable = false)
-    private String password;
+    private String password="deepi";
 
     @Column(nullable = false)
     private String role = "USER";
