@@ -19,7 +19,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Contract Breach Penalty Calculator API")
+                        .title("Ticket Categorizer API")
                         .description("API for managing contracts, deliveries, breach rules, and penalty calculations")
                         .version("1.0.0"))
                 .servers(List.of(
